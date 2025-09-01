@@ -1,0 +1,7 @@
+[tracing]
+level = "debug"
+format = "text"          # "text" | "json"
+with_level = true
+with_target = false
+with_thread_ids = true
+with_line_number = true
