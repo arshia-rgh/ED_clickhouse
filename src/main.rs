@@ -6,10 +6,12 @@ mod config;
 mod error;
 mod nats;
 
-fn main() {
+#[tokio::main]
+async fn main() {
     let app_configs = config::AppConfig::load_from_file("config/default.toml").unwrap();
 
     init_tracing(app_configs.tracing.clone());
+    let nats_client = nats::Nats::new(app_configs.nats.clone()).await.unwrap();
     info!("starting up");
     debug!("starting up");
     println!("{}, {:?}", "app_configs", app_configs);
@@ -23,7 +25,8 @@ fn init_tracing(trace_config: config::TracingConfig) {
         .with_level(trace_config.with_level)
         .with_target(trace_config.with_target)
         .with_thread_ids(trace_config.with_thread_ids)
-        .with_line_number(trace_config.with_line_number);
+        .with_line_number(trace_config.with_line_number)
+        .with_file(trace_config.with_file);
 
     match trace_config.format {
         config::LogFormat::Json => {

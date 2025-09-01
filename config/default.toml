@@ -5,6 +5,7 @@ with_level = true
 with_target = false
 with_thread_ids = true
 with_line_number = true
+with_file = true
 
 [nats]
 client_port = 4222

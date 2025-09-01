@@ -23,6 +23,7 @@ pub struct TracingConfig {
     pub with_target: bool,
     pub with_thread_ids: bool,
     pub with_line_number: bool,
+    pub with_file: bool,
 }
 
 #[derive(Debug, Clone, Deserialize)]
