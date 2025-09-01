@@ -5,3 +5,23 @@ with_level = true
 with_target = false
 with_thread_ids = true
 with_line_number = true
+
+[nats]
+client_port = 4222
+server_port = 8222
+username = "user"
+password = "password"
+host = "localhost"
+queue = "clickhouse-queue"
+subject = "click.cache"
+consumer_name = "click-consumer"
+
+[nats.stream_config]
+name = "ClickHouse"
+retention = "workqueue"
+discard = "old"
+storage = "memory"
+no_ack = false
+max_consumers = 100
+max_age = "24h"
+need_create = true
