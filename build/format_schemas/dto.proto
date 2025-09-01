@@ -1,0 +1,226 @@
+syntax = "proto3";
+
+package dto;
+
+// LoginEvent
+message LoginEvent {
+  string event_id = 1;
+  string event_name = 2;
+  string user_id = 3;
+  string session_id = 4;
+  string anonymous_id = 5;
+  int64 timestamp = 6;
+  string service_origin = 7;
+  string platform = 8;
+  string platform_version = 9;
+  string os_name = 10;
+  string os_version = 11;
+  string browser_name = 12;
+  string browser_version = 13;
+  string device_type = 14;
+  string screen_resolution = 15;
+  string user_agent = 16;
+}
+
+// SabteAhvalEvent
+message SabteAhvalEvent {
+  string event_id = 1;
+  string event_name = 2;
+  string user_id = 3;
+  string session_id = 4;
+  string anonymous_id = 5;
+  int64 timestamp = 6;
+  string service_origin = 7;
+  string platform = 8;
+  string platform_version = 9;
+  string os_name = 10;
+  string os_version = 11;
+  string browser_name = 12;
+  string browser_version = 13;
+  string device_type = 14;
+  string screen_resolution = 15;
+  string user_agent = 16;
+  string profile_id = 17;
+  bool is_new_user = 18;
+}
+
+// AngulakLikeEvent
+message AngulakLikeEvent {
+  string event_id = 1;
+  string event_name = 2;
+  string user_id = 3;
+  string session_id = 4;
+  string anonymous_id = 5;
+  int64 timestamp = 6;
+  string service_origin = 7;
+  string platform = 8;
+  string platform_version = 9;
+  string os_name = 10;
+  string os_version = 11;
+  string browser_name = 12;
+  string browser_version = 13;
+  string device_type = 14;
+  string screen_resolution = 15;
+  string user_agent = 16;
+  string play_info_id = 17;
+  string action = 18;
+}
+
+// AngulakWatchEvent
+message AngulakWatchEvent {
+  string event_id = 1;
+  string event_name = 2;
+  string user_id = 3;
+  string session_id = 4;
+  string anonymous_id = 5;
+  int64 timestamp = 6;
+  string service_origin = 7;
+  string platform = 8;
+  string platform_version = 9;
+  string os_name = 10;
+  string os_version = 11;
+  string browser_name = 12;
+  string browser_version = 13;
+  string device_type = 14;
+  string screen_resolution = 15;
+  string user_agent = 16;
+  string state = 17;
+  string item_type = 18;
+  string item_id = 19;
+  string play_info_id = 20;
+  int32 season_number = 21;
+  int32 episode_number = 22;
+  string subtitle_language = 23;
+  string audio_language = 24;
+  int32 video_position = 25;
+  int32 video_duration = 26;
+  string player_version = 27;
+  string internet_connection_type = 28;
+  string region = 29;
+  string ad_id = 30;
+  string ad_type = 31;
+  string event_details = 32;
+}
+
+// SessionEvent
+message SessionEvent {
+  string event_id = 1;
+  string event_name = 2;
+  string user_id = 3;
+  string session_id = 4;
+  string anonymous_id = 5;
+  int64 timestamp = 6;
+  string service_origin = 7;
+  string platform = 8;
+  string platform_version = 9;
+  string os_name = 10;
+  string os_version = 11;
+  string browser_name = 12;
+  string browser_version = 13;
+  string device_type = 14;
+  string screen_resolution = 15;
+  string user_agent = 16;
+  bool is_ended = 17;
+}
+
+// AngulakCommentEvent
+message AngulakCommentEvent {
+  string event_id = 1;
+  string event_name = 2;
+  string user_id = 3;
+  string session_id = 4;
+  string anonymous_id = 5;
+  int64 timestamp = 6;
+  string service_origin = 7;
+  string platform = 8;
+  string platform_version = 9;
+  string os_name = 10;
+  string os_version = 11;
+  string browser_name = 12;
+  string browser_version = 13;
+  string device_type = 14;
+  string screen_resolution = 15;
+  string user_agent = 16;
+  string play_info_id = 17;
+}
+
+// ShahreFarangItemEvent
+message ShahreFarangItemEvent {
+  string event_id = 1;
+  string event_name = 2;
+  string user_id = 3;
+  string session_id = 4;
+  string anonymous_id = 5;
+  int64 timestamp = 6;
+  string service_origin = 7;
+  string platform = 8;
+  string platform_version = 9;
+  string os_name = 10;
+  string os_version = 11;
+  string browser_name = 12;
+  string browser_version = 13;
+  string device_type = 14;
+  string screen_resolution = 15;
+  string user_agent = 16;
+  string item_id = 17;
+  string play_info_id = 18;
+  int32 age_rating = 19;
+  bool is_dubbed = 20;
+  bool is_exclusive = 21;
+  bool has_subtitle = 22;
+  repeated string genres = 23;
+  repeated string labels = 24;
+  repeated string languages = 25;
+  repeated string categories = 26;
+  string reach_method = 27;
+}
+
+// ShahreFarangPlayInfoEvent
+message ShahreFarangPlayInfoEvent {
+  string event_id = 1;
+  string event_name = 2;
+  string user_id = 3;
+  string session_id = 4;
+  string anonymous_id = 5;
+  int64 timestamp = 6;
+  string service_origin = 7;
+  string platform = 8;
+  string platform_version = 9;
+  string os_name = 10;
+  string os_version = 11;
+  string browser_name = 12;
+  string browser_version = 13;
+  string device_type = 14;
+  string screen_resolution = 15;
+  string user_agent = 16;
+  int32 duration = 17;
+  string item_id = 18;
+  repeated string genres = 19;
+  repeated string categories = 20;
+  repeated string labels = 21;
+  bool has_subtitle = 22;
+  bool is_dubbed = 23;
+  string reach_method = 24;
+}
+
+// AngulakBookmarkEvent
+message AngulakBookmarkEvent {
+  string event_id = 1;
+  string event_name = 2;
+  string user_id = 3;
+  string session_id = 4;
+  string anonymous_id = 5;
+  int64 timestamp = 6;
+  string service_origin = 7;
+  string platform = 8;
+  string platform_version = 9;
+  string os_name = 10;
+  string os_version = 11;
+  string browser_name = 12;
+  string browser_version = 13;
+  string device_type = 14;
+  string screen_resolution = 15;
+  string user_agent = 16;
+  string play_info_id = 17;
+  string action = 18;
+}

@@ -1,11 +1,11 @@
 [tracing]
-level = "debug"
+level = "info"
 format = "text"          # "text" | "json"
 with_level = true
 with_target = false
-with_thread_ids = true
-with_line_number = true
-with_file = true
+with_thread_ids = false
+with_line_number = false
+with_file = false
 
 [nats]
 client_port = 4222
@@ -14,11 +14,11 @@ username = "user"
 password = "password"
 host = "localhost"
 queue = "clickhouse-queue"
-subject = "click.cache"
+subjects = ["events.login"]
 consumer_name = "click-consumer"
 
 [nats.stream_config]
-name = "ClickHouse"
+name = "ClickHouseConsumer"
 retention = "workqueue"
 discard = "old"
 storage = "memory"
@@ -26,3 +26,18 @@ no_ack = false
 max_consumers = 100
 max_age = "24h"
 need_create = true
+
+[clickhouse]
+host = "localhost"
+port = 8123
+user = ""
+password = ""
+database = "database"
+max_open_conns = 1
+max_idle_conns = 1
+debug = false
+
+[batcher]
+max_rows = 100000
+max_bytes = 60000000
+flush_interval_ms = 1000

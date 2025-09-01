@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  clickhouse:
+    image: clickhouse/clickhouse-server:22.3-alpine
+    container_name: clickhouse
+    ports:
+      - "8123:8123"
+      - "9000:9000"
+    volumes:
+#      - ./clickhouse-config.xml:/etc/clickhouse-server/users.d/my-user.
+      - ./format_schemas:/var/lib/clickhouse/format_schemas
+    environment:
+      - CLICKHOUSE_DB=database
+
+  nats:
+    image: nats:latest
+    container_name: nats
+    restart: always
+    ports:
+      - "4222:4222"
+      - "8222:8222"
+    volumes:
+      - nats_data:/data
+    command: >
+      -js
+      -m 8223
+      --user user
+      --pass password
+
+volumes:
+  nats_data:

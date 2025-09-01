@@ -1,0 +1,31 @@
+CREATE TABLE IF NOT EXISTS shahre_farang_item_events (
+    event_id String,
+    event_name String,
+    user_id String,
+    session_id String,
+    anonymous_id String,
+    timestamp DateTime,
+    service_origin String,
+    platform String,
+    platform_version String,
+    os_name String,
+    os_version String,
+    browser_name String,
+    browser_version String,
+    device_type String,
+    screen_resolution String,
+    user_agent String,
+    item_id String,
+    play_info_id String,
+    age_rating Int32,
+    is_dubbed Boolean,
+    is_exclusive Boolean,
+    has_subtitle Boolean,
+    genres Array(String),
+    labels Array(String),
+    languages Array(String),
+    categories Array(String),
+    reach_method String
+) ENGINE = MergeTree()
+ORDER BY
+    (timestamp, event_name);

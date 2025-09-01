@@ -5,6 +5,8 @@ use serde::Deserialize;
 pub struct AppConfig {
     pub tracing: TracingConfig,
     pub nats: NatsConfig,
+    pub clickhouse: ClickHouseConfig,
+    pub batcher: BatchConfig,
 }
 
 impl AppConfig {
@@ -41,7 +43,7 @@ pub struct NatsConfig {
     pub password: String,
     pub host: String,
     pub queue: String,
-    pub subject: String,
+    pub subjects: Vec<String>,
     pub consumer_name: String,
     pub stream_config: NatsStreamConfig,
 }
@@ -94,4 +96,23 @@ pub enum DiscardPolicyDef {
 pub enum StorageTypeDef {
     Memory,
     File,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct ClickHouseConfig {
+    pub host: String,
+    pub port: u16,
+    pub user: String,
+    pub password: String,
+    pub database: String,
+    pub max_open_conns: u32,
+    pub max_idle_conns: u32,
+    pub debug: bool,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct BatchConfig {
+    pub max_rows: usize,
+    pub max_bytes: usize,
+    pub flush_interval_ms: u64,
 }
